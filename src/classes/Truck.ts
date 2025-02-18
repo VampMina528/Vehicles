@@ -35,11 +35,14 @@ class Truck extends Vehicle implements AbleToTow {
     super();
     // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
 
+    
+
     if (wheels.length < 4) {
-      this.wheels = Array(4).fill(new Wheel());
+      this.wheels = Array.from({ length: 4 }, () => new Wheel());
     } else {
       this.wheels = wheels;
     }
+
 
     this.vin = vin;
     this.color = color;
@@ -63,7 +66,7 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: The method should call the printDetails method of the parent class
   // Override the printDetails method from the Vehicle class
 
-  printDetails(): void {
+  override printDetails(): void {
     super.printDetails();
     console.log(`Truck Details: VIN: ${this.vin}, Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Weight: ${this.weight}, Top Speed: ${this.topSpeed}, Color: ${this.color}, Towing Capacity: ${this.towingCapacity}, Wheels: ${this.wheels.length}`);
   }
