@@ -66,7 +66,6 @@ class Cli {
         } else if (answers.vehicleType === 'Truck') {
           this.createTruck();
         } else if (answers.vehicleType === 'Motorbike') {
-        } else {
           this.createMotorbike();
         }
       });
@@ -265,7 +264,6 @@ class Cli {
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
           [new Wheel(parseInt(answers.frontWheelDiameter), answers.frontWheelBrand), new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand)],
-          // parseInt(answers.towingCapacity)
         )
         this.vehicles.push(motorbike)
 
@@ -407,31 +405,31 @@ class Cli {
         else if (answers.action === 'Do a Wheelie') {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
-              if (this.vehicles[i] instanceof Motorbike){
+              if (this.vehicles[i] instanceof Motorbike) {
                 (this.vehicles[i] as Motorbike).wheelie
-            } else {
-              console.log(`This vehicle is unable to perform wheelies.`)
+              } else {
+                console.log(`This vehicle is unable to perform wheelies.`)
+              }
             }
           }
         }
-      }
-      else if (answers.action === 'Select or create another vehicle') {
-      // start the cli to return to the initial prompt if the user wants to select or create another vehicle
-      this.startCli();
-      return;
-    } else {
-      // exit the cli if the user selects exit
-      this.exit = true;
-    }
-    if (!this.exit) {
-      // if the user does not want to exit, perform actions on the selected vehicle
-      this.performActions();
-    }
-  });
-}
-    // method to start the cli
-    startCli(): void {
-      inquirer
+        else if (answers.action === 'Select or create another vehicle') {
+          // start the cli to return to the initial prompt if the user wants to select or create another vehicle
+          this.startCli();
+          return;
+        } else {
+          // exit the cli if the user selects exit
+          this.exit = true;
+        }
+        if (!this.exit) {
+          // if the user does not want to exit, perform actions on the selected vehicle
+          this.performActions();
+        }
+      });
+  }
+  // method to start the cli
+  startCli(): void {
+    inquirer
       .prompt([
         {
           type: 'list',
@@ -441,16 +439,16 @@ class Cli {
           choices: ['Create a new vehicle', 'Select an existing vehicle'],
         },
       ])
-        .then((answers) => {
-          // check if the user wants to create a new vehicle or select an existing vehicle
-          if (answers.CreateOrSelect === 'Create a new vehicle') {
-            this.createVehicle();
-          } else {
-            this.chooseVehicle();
-          }
-        })
-    }
-  };
+      .then((answers) => {
+        // check if the user wants to create a new vehicle or select an existing vehicle
+        if (answers.CreateOrSelect === 'Create a new vehicle') {
+          this.createVehicle();
+        } else {
+          this.chooseVehicle();
+        }
+      })
+  }
+};
 
 // export the Cli class
 export default Cli;
