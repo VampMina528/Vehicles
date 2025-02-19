@@ -29,7 +29,7 @@
 
   ## Test 
   All tests can be run in the integrated terminal and also by following the instructional video
-  ## Link to Test Video "README generator" ("https://drive.google.com/file/d/1fy2LsNLOAkYZly_ao_bSSuhxueQzQKHo/view")
+  ## Link to Test Video "Vehicle Builder" ("https://drive.google.com/file/d/1fy2LsNLOAkYZly_ao_bSSuhxueQzQKHo/view")
 
   ## Questions
   If you have any questions, you can reach me at (https://github.com/VampMina528/Vehicles) or via email at TMDHammond@outlook.com.
